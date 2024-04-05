@@ -1,0 +1,56 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int mkd(int a,int b)
+{
+int kd;
+int c=b;
+  for(int i=1;i<=c;i++)
+  {
+
+      if((a%b==0) && (c%b==0))
+      {
+          kd=b;
+
+      }
+      else
+      {
+          b--;
+      }
+  }
+  return kd;
+}
+int ekp(int a,int b)
+{
+    int min,max;
+    if(b<a)
+    {
+        max=b;
+        min=a;
+    }
+    else
+    {
+        max=a;
+        min=b;
+    }
+    for(int i=1;i<=max;i++)
+    {
+        int temp=max*i;
+        if (temp%min==0)
+        {
+            return temp;
+        }
+    }
+}
+int main(){
+int a,b,kd,c,temp,min,max;
+cout<<"Give 2 Numbers "<<endl;
+cin>>a>>b;
+b=mkd(a,b);
+cout<<"MKD = "<<b<<endl;
+cout<<"Give 2 Numbers "<<endl;
+cin>>a>>b;
+temp=ekp(a,b);
+cout<<"MKD = "<<temp<<endl;
+return 0;
+}

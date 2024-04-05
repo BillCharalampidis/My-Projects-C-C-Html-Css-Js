@@ -1,0 +1,84 @@
+#include <iostream>
+#include <math.h>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+char Player_Move(char a)
+{
+    cout<<"Rock Papper or Scissors ?"<<endl;
+    cout<<"Choose R P or S"<<endl;
+    cin>>a;
+    return a;
+}
+char Computer_Move(char b)
+{
+int Pc_move;
+    srand(time(NULL));
+    Pc_move = rand() % 3;
+    if(Pc_move==0)
+    {
+        return 'R';
+    }
+    else if(Pc_move==1)
+    {
+        return 'P';
+    }
+    else
+    {
+        return 'S';
+    }
+}
+int main()
+{
+    int Pc_Score=0,Player_Score=0;
+    while((Pc_Score<3) && (Player_Score<3))
+    {
+    char a,b;
+a=Player_Move(a);
+b=Computer_Move(b);
+if ((a==b))
+{
+    cout<<"It's A Draw"<<endl;
+}
+else if((a=='R')&&(b=='P'))
+{
+    cout<<"The Computer WINS!"<<endl;
+    Pc_Score++;
+}
+else if((a=='R')&&(b=='S'))
+{
+    cout<<"You WIN!"<<endl;
+    Player_Score++;
+}
+else if((a=='S')&&(b=='R'))
+{
+    cout<<"The Computer WINS!"<<endl;
+    Pc_Score++;
+}
+else if((a=='S')&&(b=='P'))
+{
+    cout<<"You WIN!"<<endl;
+    Player_Score++;
+}
+else if((a=='P')&&(b=='R'))
+{
+    cout<<"You Win!"<<endl;
+    Player_Score++;
+}
+else if((a=='P')&&(b=='S'))
+{
+    cout<<"The Computer WINS!"<<endl;
+    Pc_Score++;
+}
+cout<<"Your Score : "<<Player_Score<<" Computer Score : "<<Pc_Score<<endl;
+    }
+    if(Player_Score==3)
+        {
+        cout<<"Congrats,You WIN!!"<<endl;
+        }
+    else
+        {
+        cout<<"You LOSE!!"<<endl;
+        }
+return 0;
+}
